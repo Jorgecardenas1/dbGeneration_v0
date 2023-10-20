@@ -718,4 +718,5 @@ oModule.InsertFrequencySweep("Setup1",
 		"PassivityErrorTolerance:=", 0.0001,
 		"SMatrixOnlySolveMode:=", "Auto"
 	])
-oProject.SaveAs("C:\\Users\\jorge\\Documents\\Projects Jorge C\\Octubre 2023\\testing-multioutput\\meta-atom_02_datageneration.aedt", True)
+oProject.SaveAs("C:\\Users\\jorge\\Documents\\Projects Jorge C\\DRUIDA PROJECT\\POC\\dbGeneration_v0\\Models\\testing-multioutput\\meta-atom_05_datageneration.aedt", True)
+oDesktop.CloseProject("meta-atom_05_datageneration")

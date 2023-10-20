@@ -703,7 +703,7 @@ oModule.InsertFrequencySweep("Setup1",
 		"RangeType:="		, "LinearStep",
 		"RangeStart:="		, "30GHz",
 		"RangeEnd:="		, "90GHz",
-		"RangeStep:="		, "0.01GHz",
+		"RangeStep:="		, "0.1GHz",
 		"Type:="		, "Interpolating",
 		"SaveFields:="		, False,
 		"SaveRadFields:="	, False,
@@ -723,6 +723,7 @@ oModule.InsertFrequencySweep("Setup1",
 	])
 
 ##Analysis section
+oProject.SaveAs("C:\\Users\\jorge\\Documents\\Projects Jorge C\\DRUIDA PROJECT\\POC\\dbGeneration_v0\\Models\\testing-multioutput\\meta-atom_04_datageneration.aedt", True)
 
 oDesign.AnalyzeAll()
 oModule = oDesign.GetModule("OutputVariable")
@@ -831,7 +832,4 @@ oModule.RenameReport("Output Variables Plot 1", "Transmittance")
 oModule.ExportToFile("TE", "C:\Users\jorge\Documents\Projects Jorge C\DRUIDA PROJECT\POC\dbGeneration_v0\Exports\TE.csv", False)
 oModule.ExportToFile("TM", "C:\Users\jorge\Documents\Projects Jorge C\DRUIDA PROJECT\POC\dbGeneration_v0\Exports\TM.csv", False)
 oModule.ExportToFile("Transmittance", "C:\Users\jorge\Documents\Projects Jorge C\DRUIDA PROJECT\POC\dbGeneration_v0\Exports\Transmittance.csv", False)
-#oProject.Save()
-oProject.SaveAs("C:\\Users\\jorge\\Documents\\Projects Jorge C\\DRUIDA PROJECT\\POC\\dbGeneration_0\\Models\\testing-multioutput\\meta-atom_04_datageneration.aedt", True)
-
 oDesktop.CloseProject("meta-atom_04_datageneration")
