@@ -1,5 +1,5 @@
 $begin 'AnsoftProject'
-	Created='Fri Oct 20 11:31:26 2023'
+	Created='Fri Oct 20 13:00:19 2023'
 	Product='ElectronicsDesktop'
 	FileOwnedByWorkbench=false
 	$begin 'Desktop'
@@ -160,7 +160,7 @@ $begin 'AnsoftProject'
 		$end 'Scripts'
 		$begin 'Symbols'
 			$begin 'HFSSDesign1'
-				ModTime=1697819483
+				ModTime=1697824816
 				Library=''
 				ModSinceLib=false
 				LibLocation='Project'
@@ -174,7 +174,7 @@ $begin 'AnsoftProject'
 			$end 'HFSSDesign1'
 		$end 'Symbols'
 		$begin 'DefInfo'
-			HFSSDesign1(1002, 0, 0, 0, '', 1697819483, '', 'HFSSDesign1', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1697819483, '', 0, 0)
+			HFSSDesign1(1002, 0, 0, 0, '', 1697824816, '', 'HFSSDesign1', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1697824816, '', 0, 0)
 		$end 'DefInfo'
 		$begin 'Compdefs'
 			$begin 'HFSSDesign1'
@@ -188,21 +188,6 @@ $begin 'AnsoftProject'
 					TextProp('Owner', 'SRD', '', 'HFSS')
 				$end 'Properties'
 				CompExtID=6
-				$begin 'Parameters'
-					MenuProp('CoSimulator', 'D', '', 'DefaultNetlist', 0)
-					ButtonProp('CosimDefinition', 'D', '', '', 'Edit', 40501, ButtonPropClientData())
-				$end 'Parameters'
-				$begin 'CosimDefinitions'
-					$begin 'CosimDefinition'
-						CosimulatorType=4
-						CosimDefName='DefaultNetlist'
-						IsDefinition=true
-						Connect=true
-						Data()
-						GRef()
-					$end 'CosimDefinition'
-					DefaultCosim='DefaultNetlist'
-				$end 'CosimDefinitions'
 			$end 'HFSSDesign1'
 		$end 'Compdefs'
 	$end 'Definitions'
@@ -270,9 +255,8 @@ $begin 'AnsoftProject'
 				VariableProp('Ysize', 'UD', '', '5mm')
 				VariableProp('H', 'UD', '', '0.5mm')
 				VariableProp('margin', 'UD', '', '1mm')
-				VariableProp('radio', 'UD', '', 'Xsize/2-margin')
 			$end 'Properties'
-			VariableOrders[5: 'Xsize', 'Ysize', 'H', 'margin', 'radio']
+			VariableOrders[4: 'Xsize', 'Ysize', 'H', 'margin']
 			$begin 'Editor3D Doc Preferences'
 				'Plane Background'=true
 				BackgroundColor1=16777215
@@ -290,7 +274,7 @@ $begin 'AnsoftProject'
 			WorkingCS=1
 			$begin 'GeometryCore'
 				BlockVersionID=3
-				DataVersion=5
+				DataVersion=4
 				NativeKernel='ACIS'
 				NativeKernelVersionID=13
 				Units='mm'
@@ -542,7 +526,7 @@ $begin 'AnsoftProject'
 										XCenter='Xsize/2'
 										YCenter='Ysize/2'
 										ZCenter='H'
-										Radius='radio'
+										Radius='Xsize/2-margin'
 										Height='0.4mm'
 										WhichAxis='Z'
 										NumSides='0'
@@ -1279,6 +1263,8 @@ $begin 'AnsoftProject'
 			$begin 'PlotDefaults'
 				Default_SolutionId=44
 				Default_PlotFolder='Automatic'
+				Default_Phase='0deg'
+				Default_Freq='60GHz'
 			$end 'PlotDefaults'
 			$begin 'FieldsPlotManagerID'
 				NextUniqueID=0
@@ -1369,7 +1355,7 @@ $begin 'AnsoftProject'
 				MoveBackwards=false
 			$end 'NearFieldSetups'
 			RadFieldComputationVersion=1.7
-			RadfieldHeaderFile='RAD483054816978194875.tmp'
+			RadfieldHeaderFile='RADC381571616978248205.tmp'
 			RadPowerMethod=0
 		$end 'RadField'
 		$begin 'SolutionManager'
@@ -1430,6 +1416,26 @@ $begin 'AnsoftProject'
 								Increment=0.0872664625997165
 								CreateIndexedSubsweepFlag=false
 							$end 'PostprocessSweep'
+							$begin 'Sweep'
+								Variable='Xsize'
+								Column='5mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='Ysize'
+								Column='5mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='H'
+								Column='0.5mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='margin'
+								Column='1mm'
+								Units='mm'
+							$end 'Sweep'
 						$end 'Sweeps'
 						IsPortOnly=false
 					$end 'SimDataExtractor'
@@ -1443,15 +1449,15 @@ $begin 'AnsoftProject'
 				$end 'Solution'
 			$end 'SimSetup'
 			$begin 'Version ID Map'
-				V=128
+				V=38
 				$begin 'Setup'
 					N='Setup1'
-					V=128
-					Soln(N='AdaptivePass', V=128)
-					Soln(N='LastAdaptive', V=128)
-					Soln(N='Sweep', V=128)
+					V=0
+					Soln(N='AdaptivePass', V=0)
+					Soln(N='LastAdaptive', V=0)
+					Soln(N='Sweep', V=0)
 				$end 'Setup'
-				IQM=129
+				IQM=39
 			$end 'Version ID Map'
 			$begin 'ID Map'
 				$begin 'Setup'
@@ -1475,7 +1481,7 @@ $begin 'AnsoftProject'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR483054816978194876.tmp'
+		CacheHeaderFile='HDRC3B1571616978248216.tmp'
 	$end 'HFSSModel'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
@@ -1489,10 +1495,6 @@ $begin 'AnsoftProject'
 				$begin 'Properties'
 					TextProp('ID', 'SRID', '', '0')
 				$end 'Properties'
-				$begin 'Parameters'
-					MenuProp('CoSimulator', 'OHD', '', 'DefaultNetlist', 0)
-					ButtonProp('CosimDefinition', 'OHD', '', '', 'Edit', 40501, ButtonPropClientData())
-				$end 'Parameters'
 			$end 'Compinst'
 		$end 'CompInstances'
 		$begin 'Instance'
@@ -1530,14 +1532,6 @@ $begin 'AnsoftProject'
 			$end 'HfssDesignInstance'
 		$end 'Instance'
 		$begin 'SODInfo'
-			$begin 'HFSSDesign1'
-				$begin 'CosimDefinition'
-					CosimDefName='DefaultNetlist'
-					$begin 'SODInstanceMap'
-					$end 'SODInstanceMap'
-					SODComponentList()
-				$end 'CosimDefinition'
-			$end 'HFSSDesign1'
 		$end 'SODInfo'
 	$end 'DataInstances'
 	$begin 'WBSystemIDToDesignInstanceIDMap'

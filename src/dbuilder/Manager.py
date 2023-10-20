@@ -20,23 +20,21 @@ class Builder:
 
     def sim_file(self, parameters, batch, iteration, filePath, **kwargs):
     
+        reports=kwargs['reports']
         simulationID=kwargs['simulation_id']
         variableName=kwargs['variable_name']
         value=kwargs['value']
         units=kwargs['units']
 
-        tag = "_"+str(batch)+"_"+str(iteration)     #esta linea genera el string _i_j
+        tag = "_"+str(batch)+"_"+str(iteration)
 
         os.chdir( os.path.normpath(filePath))
         drawing = '"' + self.modelPath + self.projectName + '.aedt"'
         print(drawing)
 
-        f = open("intermediateFile.py", "w")   #abre un archivo para escribir
-
+        f = open("intermediateFile.py", "w")  
 
         #f.write("\n")
-
-
 
         f.write("import ScriptEnv\n")
         f.write("import sys\n")
@@ -54,10 +52,16 @@ class Builder:
         f.write("oDesign.AnalyzeAll()")
         f.write("\n")
         f.write('oModule = oDesign.GetModule("OutputVariable")\n')
-        f.write('oModule.CreateOutputVariable("ReflectanceTE", "(mag(S(FloquetPort1:1,FloquetPort1:1)))^2", "Setup1 : Sweep", "Modal Solution Data", [])\n')
-        f.write('oModule.CreateOutputVariable("ReflectanceTM", "(mag(S(FloquetPort1:2,FloquetPort1:2)))^2", "Setup1 : Sweep", "Modal Solution Data", [])\n')
 
-        f.write("hfss.createResult(oProject,'" + self.exportPath +"','"+ tag +"','"+ self.modelName  +"','"+ simulationID  +"')\n")
+        for key, val in reports.items():
+            f.write('oModule.CreateOutputVariable("' + str(key) + '","'+str(val)+'", "Setup1 : Sweep", "Modal Solution Data", [])\n')
+
+        
+        for key, val in reports.items():
+
+            f.write('hfss.createResult(oProject,"' + self.exportPath +'","'+ tag +'","'+ self.projectName  +'","'+ simulationID  +'","'+str(key)+'")\n')
+        
+
         f.close()
 
 
