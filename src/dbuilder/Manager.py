@@ -32,6 +32,15 @@ class Builder:
         drawing = '"' + self.modelPath + self.projectName + '.aedt"'
         print(drawing)
 
+        isExist = os.path.exists(self.exportPath +"/output/"+str(simulationID)+"/files/")
+
+
+        if not isExist:
+
+            # Create a new directory because it does not exist
+            os.makedirs(self.exportPath +"/output/"+str(simulationID)+"/files/")
+            print("The new directory is created!")
+
         f = open("intermediateFile.py", "w")  
 
         #f.write("\n")
@@ -59,7 +68,7 @@ class Builder:
         
         for key, val in reports.items():
 
-            f.write('hfss.createResult(oProject,"' + self.exportPath +'","'+ tag +'","'+ self.projectName  +'","'+ simulationID  +'","'+str(key)+'")\n')
+            f.write('hfss.createResult(oProject,"' + self.exportPath +'","'+ tag +'","'+ self.designName  +'","'+ simulationID  +'","'+str(key)+'")\n')
         
 
         f.close()
