@@ -11,8 +11,12 @@ This development is intended to provide an interface to access HFSS, in order to
 
 ## Usage
 ```
-Builder=MG.Builder(ansysPath=ansysPath,modelName=_,projectName=_, designName=_,modelPath=_, exportPath=_)
+from dbuilder import Manager as MG
+```
 
+
+```
+Builder=MG.Builder(ansysPath=ansysPath,modelName=_,projectName=_, designName=_,modelPath=_, exportPath=_)
 ```
 
 ```
@@ -25,7 +29,7 @@ Builder.sim_file('', batch, iteration, simfile_path, **kwargs)
 
 
 ```    
-    Builder.simulate(simfile_path+simfileName)
+Builder.simulate(simfile_path+simfileName)
 ```
 
 ```
