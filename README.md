@@ -14,3 +14,39 @@ This development is intended to provide an interface to access HFSS, in order to
 Builder=MG.Builder(ansysPath=ansysPath,modelName=_,projectName=_, designName=_,modelPath=_, exportPath=_)
 
 ```
+
+```
+Builder.create()
+```
+
+```
+Builder.sim_file('', batch, iteration, simfile_path, **kwargs)
+```
+
+
+```    
+    Builder.simulate(simfile_path+simfileName)
+```
+
+```
+dbManager=MG.DBManager(ansysPath=ansysPath,
+                       modelName=modelName,
+                       projectName=project_name,
+                       designName=designName,
+                       modelPath=modelPath, 
+                       dbPath=dBPath,
+                      dbName=dbName)
+```
+
+```
+dbManager.load_df(columns=columnNames)
+
+
+"""This object can be treated as a pandas dataframe"""
+dbManager.df 
+
+```
+
+```
+dbManager.insert_row(data_to_store)
+```
