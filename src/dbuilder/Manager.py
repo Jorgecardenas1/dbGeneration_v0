@@ -20,16 +20,18 @@ import subprocess
 
 class Builder:
 
-    def __init__(self, ansysPath,modelName,projectName, designName, modelPath,exportPath):
+    def __init__(self, ansysPath,modelName,projectName, designName, modelPath,scriptPath,exportPath, imagesPath):
         self.ansysPath = ansysPath
         self.modelName = modelName
         self.modelPath = modelPath
         self.exportPath = exportPath
         self.projectName = projectName
         self.designName = designName
+        self.imagesPath = imagesPath
+        self.scriptPath = scriptPath
 
     def create(self):
-        pathString=self.modelPath + self.modelName+".py"
+        pathString=self.scriptPath + self.modelName+".py"
         subprocess.run([self.ansysPath,"-RunScriptandExit",pathString])
 
     def simulate(self, filepath):
@@ -43,7 +45,7 @@ class Builder:
         value=kwargs['value']
         units=kwargs['units']
 
-        tag = "_"+str(batch)+"_"+str(iteration)
+        tag = "_"+str(batch)+"-"+str(iteration)
 
         os.chdir( os.path.normpath(filePath))
         drawing = '"' + self.modelPath + self.projectName + '.aedt"'
@@ -86,6 +88,13 @@ class Builder:
         for key, val in reports.items():
 
             f.write('hfss.createResult(oProject,"' + self.exportPath +'","'+ tag +'","'+ self.designName  +'","'+ simulationID  +'","'+str(key)+'")\n')
+        
+
+        
+        fileName= str(self.designName+"_"+ simulationID+tag ) 
+        f.write('hfss.exportImage(oProject,"' + self.imagesPath +'","'+fileName+'")\n')
+
+
         
 
         f.close()

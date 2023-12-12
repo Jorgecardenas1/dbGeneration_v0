@@ -65,6 +65,22 @@ def setVariable(proj,name,value, design):
     	])
 
     
+def exportImage(proj,imagesPath,imageName):
+	
+	oDesign = proj.SetActiveDesign("HFSSDesign1")
+	oEditor = oDesign.SetActiveEditor("3D Modeler")
+	oEditor.ExportModelImageToFile(imagesPath+"/"+imageName, 640, 480, 
+	[
+		"NAME:SaveImageParams",
+		"ShowAxis:="		, "False",
+		"ShowGrid:="		, "False",
+		"ShowRuler:="		, "False",
+		"ShowRegion:="		, "Default",
+		"Selections:="		, "",
+		"FieldPlotSelections:="	, "",
+		"Orientation:="		, ""
+	])
+
 
 def createResult(proj,path,name,design,simID, resultName):
 

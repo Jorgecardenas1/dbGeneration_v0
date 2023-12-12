@@ -6,6 +6,7 @@ __pycache__/
 DBfiles/*
 Exports/*
 Models/*
+Images/*
 # C extensions
 *.so
 
