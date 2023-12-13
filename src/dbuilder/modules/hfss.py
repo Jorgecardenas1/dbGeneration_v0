@@ -69,7 +69,7 @@ def exportImage(proj,imagesPath,imageName):
 	
 	oDesign = proj.SetActiveDesign("HFSSDesign1")
 	oEditor = oDesign.SetActiveEditor("3D Modeler")
-	oEditor.ExportModelImageToFile(imagesPath+"/"+imageName, 640, 480, 
+	oEditor.ExportModelImageToFile(imagesPath+"/"+imageName+".png", 1156, 634, 
 	[
 		"NAME:SaveImageParams",
 		"ShowAxis:="		, "False",
@@ -78,7 +78,7 @@ def exportImage(proj,imagesPath,imageName):
 		"ShowRegion:="		, "Default",
 		"Selections:="		, "",
 		"FieldPlotSelections:="	, "",
-		"Orientation:="		, ""
+		"Orientation:="		, "Top"
 	])
 
 

@@ -45,6 +45,7 @@ class Builder:
         value=kwargs['value']
         units=kwargs['units']
 
+
         tag = "_"+str(batch)+"-"+str(iteration)
 
         os.chdir( os.path.normpath(filePath))
@@ -59,6 +60,16 @@ class Builder:
             # Create a new directory because it does not exist
             os.makedirs(self.exportPath +"/output/"+str(simulationID)+"/files/")
             print("The new directory is created!")
+
+        isExist2 = os.path.exists(self.imagesPath +"/"+str(simulationID)+"/")
+
+
+        if not isExist2:
+
+            # Create a new directory because it does not exist
+            os.makedirs(self.imagesPath +"/"+str(simulationID)+"/")
+            print("The new directory is created!")
+
 
         f = open("intermediateFile.py", "w")  
 
@@ -91,8 +102,8 @@ class Builder:
         
 
         
-        fileName= str(self.designName+"_"+ simulationID+tag ) 
-        f.write('hfss.exportImage(oProject,"' + self.imagesPath +'","'+fileName+'")\n')
+        fileName= str(self.modelName+"_"+ simulationID+tag ) 
+        f.write('hfss.exportImage(oProject,"' + self.imagesPath+"/"+str(simulationID) +'","'+fileName+'")\n')
 
 
         
