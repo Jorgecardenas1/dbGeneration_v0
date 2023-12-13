@@ -5,9 +5,7 @@ __pycache__/
 
 DBfiles/*
 Exports/*
-Models/*
 Images/*
-TEST/*
 # C extensions
 *.so
 *.toml
