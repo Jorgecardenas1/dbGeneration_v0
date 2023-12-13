@@ -54,3 +54,10 @@ dbManager.df
 ```
 dbManager.insert_row(data_to_store)
 ```
+
+```
+image_rgb=tools.cropImage( file,image_path=path,
+                              image_name=fileName_absolute,
+                              output_path=imagesPath, 
+                             resize_dim=(512,512))
+```
