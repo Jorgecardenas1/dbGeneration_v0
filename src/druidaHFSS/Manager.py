@@ -225,9 +225,9 @@ class DBManager:
  
    def insert_row(self,data_struct):
    
-      df = pd.concat([self.df, pd.DataFrame([data_struct])])
+      self.df = pd.concat([self.df, pd.DataFrame([data_struct])])
       
-      df.to_csv(self.dbPath+self.dbName, index=False,sep=',')
+      self.df.to_csv(self.dbPath+self.dbName, index=False,sep=',')
       
   
       
