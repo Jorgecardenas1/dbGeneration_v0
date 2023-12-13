@@ -89,11 +89,11 @@ class Builder:
         f = open("intermediateFile.py", "w")  
 
         #f.write("\n")
-
+ 
         f.write("import ScriptEnv\n")
-        #f.write("import sys\n")
+        f.write("import sys\n")
         f.write("import os\n")
-        #f.write("sys.path.insert(0, './src/')\n")
+        f.write("sys.path.insert(0, './src/')\n")
         f.write("from druidaHFSS.modules import hfss \n")
 
 
@@ -154,9 +154,9 @@ class Builder:
         #f.write("\n")
 
         f.write("import ScriptEnv\n")
-        #f.write("import sys\n")
+        f.write("import sys\n")
         f.write("import os\n")
-        #f.write("sys.path.insert(0, './src/')\n")
+        f.write("sys.path.insert(0, './src/')\n")
         f.write("from druidaHFSS.modules import hfss \n")
 
 
