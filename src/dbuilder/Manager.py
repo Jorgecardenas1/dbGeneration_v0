@@ -30,6 +30,21 @@ class Builder:
         self.imagesPath = imagesPath
         self.scriptPath = scriptPath
 
+        isExist = os.path.exists(self.exportPath)
+        if not isExist:
+
+            # Create a new directory because it does not exist
+            os.makedirs(self.exportPath)
+            print("The new Exports directory is created!")
+
+        isExist = os.path.exists(self.imagesPath)
+        
+        if not isExist:
+
+            # Create a new directory because it does not exist
+            os.makedirs(self.imagesPath)
+            print("The new Images directory is created!")
+
     def create(self):
         pathString=self.scriptPath + self.modelName+".py"
         subprocess.run([self.ansysPath,"-RunScriptandExit",pathString])
@@ -188,6 +203,14 @@ class DBManager:
         self.designName = designName 
         self.dbName = dbName 
 
+        isExist = os.path.exists(self.dbPath)
+        if not isExist:
+
+            # Create a new directory because it does not exist
+            os.makedirs(self.dbPath)
+            print("The new DB directory is created!")
+
+        
    def load_df(self, columns):
 
       if path.exists(self.dbPath+self.dbName):
