@@ -1,0 +1,4 @@
+units mm 
+conductor red 10 10
+dielectric gray 2 10
+substrate blue 0 2
