@@ -186,6 +186,29 @@ class Builder:
 
 
 class DataExplorer:
+
+    def __init__(self):
+        pass
+    
+    def load_df():
+        pass
+
+    def load_all_df():
+        pass
+
+    def load_data():
+        pass
+
+    def load_all_batch_data():
+        pass
+
+    def merge_all_batch_data():
+        pass
+
+    def merge_all_data():
+        pass
+
+    
     pass
 
 
