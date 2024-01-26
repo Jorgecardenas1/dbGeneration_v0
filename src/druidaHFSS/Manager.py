@@ -59,6 +59,7 @@ class Builder:
         variableName=kwargs['variable_name']
         value=kwargs['value']
         units=kwargs['units']
+        simFileName=kwargs['sim_file_name']
 
 
         tag = "_"+str(batch)+"-"+str(iteration)
@@ -86,7 +87,7 @@ class Builder:
             print("The new directory is created!")
 
 
-        f = open("intermediateFile.py", "w")  
+        f = open(simFileName, "w")  
 
         #f.write("\n")
  
