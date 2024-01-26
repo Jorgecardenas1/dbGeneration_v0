@@ -1,0 +1,25 @@
+import ScriptEnv
+import sys
+import os
+sys.path.insert(0, './src/')
+from druidaHFSS.modules import hfss 
+oDesktop.RestoreWindow()
+oDesktop.OpenProject("C:\\Users\\pucv.cl\\Documents\\Ansys_HPC_Files\\Jorge Cardenas\\AI\\dbGeneration_v0\\Models\\testing-multioutput\\meta-atom_cross_01_datageneration.aedt")
+oProject = oDesktop.SetActiveProject("meta-atom_cross_01_datageneration")
+hfss.setVariable(oProject,"parameters ","[1.4720359214445629, 2.669383530638528, 0.035, 0.508, 4.925714998678818]mm","HFSSDesign1")
+oDesign = oProject.SetActiveDesign("HFSSDesign1")
+oDesign.AnalyzeAll()
+oModule = oDesign.GetModule("OutputVariable")
+oModule.CreateOutputVariable("ReflectanceTE","(mag(S(FloquetPort1:1,FloquetPort1:1)))^2", "Setup1 : Sweep", "Modal Solution Data", [])
+oModule.CreateOutputVariable("ReflectanceTM","(mag(S(FloquetPort1:2,FloquetPort1:2)))^2", "Setup1 : Sweep", "Modal Solution Data", [])
+oModule.CreateOutputVariable("TransmittanceTE","(mag(S(FloquetPort2:1,FloquetPort2:1)))^2", "Setup1 : Sweep", "Modal Solution Data", [])
+oModule.CreateOutputVariable("TransmittanceTM","(mag(S(FloquetPort2:2,FloquetPort2:2)))^2", "Setup1 : Sweep", "Modal Solution Data", [])
+oModule.CreateOutputVariable("AbsorbanceTE","1-((mag(S(FloquetPort1:1,FloquetPort1:1)))^2 +(mag(S(FloquetPort2:1,FloquetPort1:1)))^2)", "Setup1 : Sweep", "Modal Solution Data", [])
+oModule.CreateOutputVariable("AbsorbanceTM","1-((mag(S(FloquetPort1:2,FloquetPort1:2)))^2 +(mag(S(FloquetPort2:2,FloquetPort1:2)))^2)", "Setup1 : Sweep", "Modal Solution Data", [])
+hfss.createResult(oProject,"C:\Users\pucv.cl\Documents\Ansys_HPC_Files\Jorge Cardenas\AI\dbGeneration_v0\Exports","_0-99","HFSSDesign1","89962313-bbc8-11ee-a7fe-047c16a08772","ReflectanceTE")
+hfss.createResult(oProject,"C:\Users\pucv.cl\Documents\Ansys_HPC_Files\Jorge Cardenas\AI\dbGeneration_v0\Exports","_0-99","HFSSDesign1","89962313-bbc8-11ee-a7fe-047c16a08772","ReflectanceTM")
+hfss.createResult(oProject,"C:\Users\pucv.cl\Documents\Ansys_HPC_Files\Jorge Cardenas\AI\dbGeneration_v0\Exports","_0-99","HFSSDesign1","89962313-bbc8-11ee-a7fe-047c16a08772","TransmittanceTE")
+hfss.createResult(oProject,"C:\Users\pucv.cl\Documents\Ansys_HPC_Files\Jorge Cardenas\AI\dbGeneration_v0\Exports","_0-99","HFSSDesign1","89962313-bbc8-11ee-a7fe-047c16a08772","TransmittanceTM")
+hfss.createResult(oProject,"C:\Users\pucv.cl\Documents\Ansys_HPC_Files\Jorge Cardenas\AI\dbGeneration_v0\Exports","_0-99","HFSSDesign1","89962313-bbc8-11ee-a7fe-047c16a08772","AbsorbanceTE")
+hfss.createResult(oProject,"C:\Users\pucv.cl\Documents\Ansys_HPC_Files\Jorge Cardenas\AI\dbGeneration_v0\Exports","_0-99","HFSSDesign1","89962313-bbc8-11ee-a7fe-047c16a08772","AbsorbanceTM")
+hfss.exportImage(oProject,"C:\Users\pucv.cl\Documents\Ansys_HPC_Files\Jorge Cardenas\AI\dbGeneration_v0\Images/89962313-bbc8-11ee-a7fe-047c16a08772","cross_01_freq_reflect_89962313-bbc8-11ee-a7fe-047c16a08772_0-99")
