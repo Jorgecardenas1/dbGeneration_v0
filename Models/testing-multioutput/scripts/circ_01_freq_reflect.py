@@ -739,5 +739,5 @@ oModule.InsertFrequencySweep("Setup1",
 		"PassivityErrorTolerance:=", 0.0001,
 		"SMatrixOnlySolveMode:=", "Auto"
 	])
-oProject.SaveAs("C:\\Users\\pucv.cl\\Documents\\Ansys_HPC_Files\\Jorge Cardenas\\AI\\dbGeneration_v0\\Models\\testing-multioutput\\meta-atom_circ_01_datageneration.aedt", True)
-oDesktop.CloseProject("meta-atom_circ_01_datageneration")
+oProject.SaveAs("C:\\Users\\jorge\\Documents\\Projects Jorge C\\DRUIDA PROJECT\\POC\\dbGeneration_v0\\Models\\testing-multioutput\\meta-atom_circ_01_datageneration.aedt", True)
+oDesktop.CloseProject("meta-atom_05_datageneration")
