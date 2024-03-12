@@ -178,8 +178,8 @@ $begin 'AnsoftProject'
 				$end 'Properties'
 				CompExtID=6
 				$begin 'Parameters'
-					MenuProp('CoSimulator', 'D', '', 'DefaultNetlist', 0)
 					ButtonProp('CosimDefinition', 'D', '', '', 'Edit', 40501, ButtonPropClientData())
+					MenuProp('CoSimulator', 'D', '', 'DefaultNetlist', 0)
 				$end 'Parameters'
 				$begin 'CosimDefinitions'
 					$begin 'CosimDefinition'
@@ -1401,7 +1401,7 @@ $begin 'AnsoftProject'
 							RangeType='LinearStep'
 							RangeStart='30GHz'
 							RangeEnd='90GHz'
-							RangeStep='0.01GHz'
+							RangeStep='0.1GHz'
 							Type='Interpolating'
 							SaveFields=false
 							SaveRadFields=false
@@ -1656,7 +1656,7 @@ $begin 'AnsoftProject'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR030B2809617073968816.tmp'
+		CacheHeaderFile='HDR50982649617102527193.tmp'
 	$end 'HFSSModel'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
@@ -1683,7 +1683,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(3, -1, -1, -8, -31, 0, 0, 1292, 477), OrientationMatrix(0, -0.35999995470047, 0, 0, 0.35999995470047, 0, 0, 0, 0, 0, 0.35999995470047, 0, -0.899999856948853, 0.899999856948853, -9.11100101470947, 1, 0, -1.85401463508606, 1.85401463508606, -1, 1, -11.7082138061523, 29.2192153930664), Drawings[4: 'Rectangle1', 'Box1', 'Cylinder1', 'Region'], 'View Data'('Render Mode'=1, 'Show Ruler'=0, 'Coordinate Systems View Mode'=2, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=2, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=0.2, dYForGrid=0.2, dZForGrid=0.2, dRForGrid=0.2, dThetaForGrid=10), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(3, -1, -1, -8, -31, 0, 0, 1292, 477), OrientationMatrix(0, -0.35999995470047, 0, 0, 0.35999995470047, 0, 0, 0, 0, 0, 0.35999995470047, 0, -0.899999856948853, 0.899999856948853, -9.11100101470947, 1, 0, -1.85401463508606, 1.85401463508606, -1, 1, -11.7082099914551, 29.2192115783691), Drawings[4: 'Rectangle1', 'Box1', 'Cylinder1', 'Region'], 'View Data'('Render Mode'=1, 'Show Ruler'=0, 'Coordinate Systems View Mode'=2, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=2, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=0.2, dYForGrid=0.2, dZForGrid=0.2, dRForGrid=0.2, dThetaForGrid=10), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
