@@ -95,27 +95,6 @@ oDesign.ChangeProperty(
 			]
 		]
 	])
-oDesign.ChangeProperty(
-    	[
-    		"NAME:AllTabs",
-    		[
-    			"NAME:LocalVariableTab",
-    			[
-    				"NAME:PropServers", 
-    				"LocalVariables"
-    			],
-    			[
-    				"NAME:NewProps",
-    				[
-    					"NAME:" +"parameters",
-    					"PropType:="		, "VariableProp",
-    					"UserDef:="		, True,
-    					"Value:="		, "[0.2]mm"
-    				]
-    			]
-    		]
-    	])
-
 oEditor.ChangeProperty(
 	[
 		"NAME:AllTabs",
@@ -397,7 +376,7 @@ oEditor.ChangeProperty(
 				"NAME:ChangedProps",
 				[
 					"NAME:Radius",
-					"Value:="		, "parameters[0]"
+					"Value:="		, "2mm + margin"
 				]
 			]
 		]
@@ -451,7 +430,7 @@ oEditor.ChangeProperty(
 				"NAME:ChangedProps",
 				[
 					"NAME:Radius",
-					"Value:="		, "parameters[0]"
+					"Value:="		, "1.5mm - margin"
 				]
 			]
 		]
@@ -677,6 +656,9 @@ oModule.AssignFloquetPort(
 			]
 		]
 	])
+
+
+
 oModule = oDesign.GetModule("AnalysisSetup")
 oModule.InsertSetup("HfssDriven", 
 	[
@@ -721,7 +703,7 @@ oModule.InsertFrequencySweep("Setup1",
 		"RangeType:="		, "LinearStep",
 		"RangeStart:="		, "30GHz",
 		"RangeEnd:="		, "90GHz",
-		"RangeStep:="		, "0.01GHz",
+		"RangeStep:="		, "0.1GHz",
 		"Type:="		, "Interpolating",
 		"SaveFields:="		, False,
 		"SaveRadFields:="	, False,
@@ -739,5 +721,115 @@ oModule.InsertFrequencySweep("Setup1",
 		"PassivityErrorTolerance:=", 0.0001,
 		"SMatrixOnlySolveMode:=", "Auto"
 	])
-oProject.SaveAs("C:\\Users\\jorge\\Documents\\Projects Jorge C\\DRUIDA PROJECT\\POC\\dbGeneration_v0\\Models\\testing-multioutput\\meta-atom_circ_01_datageneration.aedt", True)
-oDesktop.CloseProject("meta-atom_05_datageneration")
+
+##Analysis section
+oProject.SaveAs("C:\\Users\\jorge\\Documents\\Projects Jorge C\\DRUIDA PROJECT\\POC\\dbGeneration_v0\\Models\\testing-multioutput\\meta-atom_04_datageneration.aedt", True)
+
+oDesign.AnalyzeAll()
+oModule = oDesign.GetModule("OutputVariable")
+oModule.CreateOutputVariable("transmittance", "(mag(S(FloquetPort2:1,FloquetPort1:1)))^2", "Setup1 : Sweep", "Modal Solution Data", [])
+oModule = oDesign.GetModule("ReportSetup")
+oModule.CreateReport("Output Variables Plot 1", "Modal Solution Data", "Rectangular Plot", "Setup1 : Sweep", 
+	[
+		"Domain:="		, "Sweep"
+	], 
+	[
+		"Freq:="		, ["All"],
+		"Xsize:="		, ["Nominal"],
+		"Ysize:="		, ["Nominal"],
+		"H:="			, ["Nominal"],
+		"margin:="		, ["Nominal"]
+	], 
+	[
+		"X Component:="		, "Freq",
+		"Y Component:="		, ["transmittance"]
+	])
+oModule = oDesign.GetModule("OutputVariable")
+oModule.CreateOutputVariable("transmittanceTM", "(mag(S(FloquetPort2:2,FloquetPort1:2)))^2", "Setup1 : Sweep", "Modal Solution Data", [])
+oModule = oDesign.GetModule("ReportSetup")
+oModule.AddTraces("Output Variables Plot 1", "Setup1 : Sweep", 
+	[
+		"Domain:="		, "Sweep"
+	], 
+	[
+		"Freq:="		, ["All"],
+		"Xsize:="		, ["Nominal"],
+		"Ysize:="		, ["Nominal"],
+		"H:="			, ["Nominal"],
+		"margin:="		, ["Nominal"]
+	], 
+	[
+		"X Component:="		, "Freq",
+		"Y Component:="		, ["transmittanceTM"]
+	])
+oModule.CreateReport("S Parameter Plot 1", "Modal Solution Data", "Rectangular Plot", "Setup1 : Sweep", 
+	[
+		"Domain:="		, "Sweep"
+	], 
+	[
+		"Freq:="		, ["All"],
+		"Xsize:="		, ["Nominal"],
+		"Ysize:="		, ["Nominal"],
+		"H:="			, ["Nominal"],
+		"margin:="		, ["Nominal"]
+	], 
+	[
+		"X Component:="		, "Freq",
+		"Y Component:="		, ["dB(S(FloquetPort1:2,FloquetPort1:1))","dB(S(FloquetPort2:2,FloquetPort1:1))"]
+	])
+oModule.UpdateTraces("S Parameter Plot 1", ["dB(S(FloquetPort1:2,FloquetPort1:1))"], "Setup1 : Sweep", 
+	[
+		"Domain:="		, "Sweep"
+	], 
+	[
+		"Freq:="		, ["All"],
+		"Xsize:="		, ["Nominal"],
+		"Ysize:="		, ["Nominal"],
+		"H:="			, ["Nominal"],
+		"margin:="		, ["Nominal"]
+	], 
+	[
+		"X Component:="		, "Freq",
+		"Y Component:="		, ["dB(S(FloquetPort1:1,FloquetPort1:1))"]
+	])
+oModule.AddTraces("S Parameter Plot 1", "Setup1 : Sweep", 
+	[
+		"Domain:="		, "Sweep"
+	], 
+	[
+		"Freq:="		, ["All"],
+		"Xsize:="		, ["Nominal"],
+		"Ysize:="		, ["Nominal"],
+		"H:="			, ["Nominal"],
+		"margin:="		, ["Nominal"]
+	], 
+	[
+		"X Component:="		, "Freq",
+		"Y Component:="		, ["dB(S(FloquetPort2:1,FloquetPort1:1))"]
+	])
+oModule.DeleteTraces(
+	[
+		"S Parameter Plot 1:="	, ["dB(S(FloquetPort2:2,FloquetPort1:1))"]
+	])
+oModule.CreateReport("S Parameter Plot 2", "Modal Solution Data", "Rectangular Plot", "Setup1 : Sweep", 
+	[
+		"Domain:="		, "Sweep"
+	], 
+	[
+		"Freq:="		, ["All"],
+		"Xsize:="		, ["Nominal"],
+		"Ysize:="		, ["Nominal"],
+		"H:="			, ["Nominal"],
+		"margin:="		, ["Nominal"]
+	], 
+	[
+		"X Component:="		, "Freq",
+		"Y Component:="		, ["dB(S(FloquetPort1:2,FloquetPort1:2))","dB(S(FloquetPort2:2,FloquetPort1:2))"]
+	])
+oModule.RenameReport("S Parameter Plot 2", "TM")
+oModule.RenameReport("S Parameter Plot 1", "TE")
+oModule.RenameReport("Output Variables Plot 1", "Transmittance")
+oModule.ExportToFile("TE", "C:\Users\jorge\Documents\Projects Jorge C\DRUIDA PROJECT\POC\dbGeneration_v0\Exports\TE.csv", False)
+oModule.ExportToFile("TM", "C:\Users\jorge\Documents\Projects Jorge C\DRUIDA PROJECT\POC\dbGeneration_v0\Exports\TM.csv", False)
+oModule.ExportToFile("Transmittance", "C:\Users\jorge\Documents\Projects Jorge C\DRUIDA PROJECT\POC\dbGeneration_v0\Exports\Transmittance.csv", False)
+oDesktop.CloseProject("meta-atom_04_datageneration")

@@ -6,9 +6,12 @@ __pycache__/
 DBfiles/*
 Exports/*
 Images/*
+Models/*
+
 # C extensions
 *.so
 *.toml
+# *.zip
 
 # Distribution / packaging
 .Python

@@ -1,5 +1,5 @@
 $begin 'AnsoftProject'
-	Created='Thu Jan 25 15:56:49 2024'
+	Created='Thu Feb  8 09:56:52 2024'
 	Product='ElectronicsDesktop'
 	FileOwnedByWorkbench=false
 	$begin 'Desktop'
@@ -149,7 +149,7 @@ $begin 'AnsoftProject'
 		$end 'Scripts'
 		$begin 'Symbols'
 			$begin 'HFSSDesign1'
-				ModTime=1706209004
+				ModTime=1707397007
 				Library=''
 				ModSinceLib=false
 				LibLocation='Project'
@@ -163,7 +163,7 @@ $begin 'AnsoftProject'
 			$end 'HFSSDesign1'
 		$end 'Symbols'
 		$begin 'DefInfo'
-			HFSSDesign1(1002, 0, 0, 0, '', 1706209004, '', 'HFSSDesign1', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1706209004, '', 0, 0)
+			HFSSDesign1(1002, 0, 0, 0, '', 1707397007, '', 'HFSSDesign1', '', '', '', '', '', 'Design.bmp', '', 'Project', '', '', 1707397007, '', 0, 0)
 		$end 'DefInfo'
 		$begin 'Compdefs'
 			$begin 'HFSSDesign1'
@@ -264,7 +264,7 @@ $begin 'AnsoftProject'
 			WorkingCS=1
 			$begin 'GeometryCore'
 				BlockVersionID=3
-				DataVersion=7
+				DataVersion=6
 				NativeKernel='PARASOLID'
 				NativeKernelVersionID=23
 				Units='mm'
@@ -1146,7 +1146,7 @@ $begin 'AnsoftProject'
 						FaceNameAndIDMap()
 						EdgeNameAndIDMap()
 						VertexNameAndIDMap()
-						IsXZ2DModeler=false
+						IsXZ2DModeler=true
 					$end 'RegionIdentity'
 					$begin 'CachedNames'
 						$begin 'allobjects'
@@ -2047,7 +2047,7 @@ $begin 'AnsoftProject'
 				MoveBackwards=false
 			$end 'NearFieldSetups'
 			RadFieldComputationVersion=1.8
-			RadfieldHeaderFile='RAD52B86660017062090387.tmp'
+			RadfieldHeaderFile='RAD04BE2865617073970147.tmp'
 			RadPowerMethod=0
 		$end 'RadField'
 		$begin 'SolutionManager'
@@ -2153,7 +2153,7 @@ $begin 'AnsoftProject'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR52B86660017062090388.tmp'
+		CacheHeaderFile='HDR04BE2865617073970148.tmp'
 	$end 'HFSSModel'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
@@ -2180,7 +2180,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(3, -1, -1, -8, -31, 0, 0, 804, 256), OrientationMatrix(0, -0.360000014305115, 2.98023330458363e-08, 0, 0.360000014305115, -3.72529163072954e-09, 0, 0, 5.7676676767926e-09, 0, 0.360000014305115, 0, -0.900000035762787, 0.899999976158142, -8.76000022888184, 1, 0, -1.85401463508606, 1.85401463508606, -1, 1, -11.3626689910889, 28.522668838501), Drawings[4: 'Rectangle1', 'Box1', 'Region', 'Box2'], 'View Data'('Render Mode'=1, 'Show Ruler'=0, 'Coordinate Systems View Mode'=2, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=2, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=0.1, dYForGrid=0.1, dZForGrid=0.1, dRForGrid=0.1, dThetaForGrid=10), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(3, -1, -1, -8, -31, 0, 0, 1292, 477), OrientationMatrix(-7.87110998601293e-09, -0.35999983549118, -6.53348958972517e-24, 0, 0.35999983549118, 3.93555588118488e-09, -7.87111087419134e-09, 0, -1.79911037179181e-08, 3.14844399440517e-08, 0.35999983549118, 0, -0.899999618530273, 0.899999558925629, -8.7599983215332, 1, 0, -1.85401463508606, 1.85401463508606, -1, 1, -11.3626613616943, 28.5226573944092), Drawings[4: 'Rectangle1', 'Box1', 'Region', 'Box2'], 'View Data'('Render Mode'=1, 'Show Ruler'=0, 'Coordinate Systems View Mode'=2, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=2, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=0.2, dYForGrid=0.2, dZForGrid=0.2, dRForGrid=0.2, dThetaForGrid=10), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'

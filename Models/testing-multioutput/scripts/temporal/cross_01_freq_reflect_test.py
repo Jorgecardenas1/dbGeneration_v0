@@ -1,3 +1,4 @@
+
 # ----------------------------------------------
 # Script Recorded by Ansys Electronics Desktop Version 2021.2.0
 # 7:44:34  Oct 17, 2023
@@ -37,6 +38,28 @@ oEditor.CreateRectangle(
 		"UseMaterialAppearance:=", False,
 		"IsLightweight:="	, False
 	])
+
+oDesign.ChangeProperty(
+    	[
+    		"NAME:AllTabs",
+    		[
+    			"NAME:LocalVariableTab",
+    			[
+    				"NAME:PropServers", 
+    				"LocalVariables"
+    			],
+    			[
+    				"NAME:NewProps",
+    				[
+    					"NAME:" +"parameters",
+    					"PropType:="		, "VariableProp",
+    					"UserDef:="		, True,
+    					"Value:="		, "[0.2, 0.5, 0.5, 0.5,5]mm"
+    				]
+    			]
+    		]
+    	])
+
 oDesign.ChangeProperty(
 	[
 		"NAME:AllTabs",
@@ -52,7 +75,7 @@ oDesign.ChangeProperty(
 					"NAME:Xsize",
 					"PropType:="		, "VariableProp",
 					"UserDef:="		, True,
-					"Value:="		, "5mm"
+					"Value:="		, "parameters[4]"
 				]
 			]
 		]
@@ -75,6 +98,18 @@ oEditor.ChangeProperty(
 			]
 		]
 	])
+
+
+
+oModule = oDesign.GetModule("BoundarySetup")
+oModule.AssignPerfectE(
+	[
+		"NAME:PerfE1",
+		"Objects:="		, ["Rectangle1"],
+		"InfGroundPlane:="	, False
+	])
+
+
 oDesign.ChangeProperty(
 	[
 		"NAME:AllTabs",
@@ -90,31 +125,11 @@ oDesign.ChangeProperty(
 					"NAME:Ysize",
 					"PropType:="		, "VariableProp",
 					"UserDef:="		, True,
-					"Value:="		, "6mm"
+					"Value:="		, "parameters[4]"
 				]
 			]
 		]
 	])
-oDesign.ChangeProperty(
-    	[
-    		"NAME:AllTabs",
-    		[
-    			"NAME:LocalVariableTab",
-    			[
-    				"NAME:PropServers", 
-    				"LocalVariables"
-    			],
-    			[
-    				"NAME:NewProps",
-    				[
-    					"NAME:" +"parameters",
-    					"PropType:="		, "VariableProp",
-    					"UserDef:="		, True,
-    					"Value:="		, "[0.2]mm"
-    				]
-    			]
-    		]
-    	])
 
 oEditor.ChangeProperty(
 	[
@@ -134,24 +149,7 @@ oEditor.ChangeProperty(
 			]
 		]
 	])
-oDesign.ChangeProperty(
-	[
-		"NAME:AllTabs",
-		[
-			"NAME:LocalVariableTab",
-			[
-				"NAME:PropServers", 
-				"LocalVariables"
-			],
-			[
-				"NAME:ChangedProps",
-				[
-					"NAME:Ysize",
-					"Value:="		, "5mm"
-				]
-			]
-		]
-	])
+
 oEditor.CreateBox(
 	[
 		"NAME:BoxParameters",
@@ -248,7 +246,7 @@ oDesign.ChangeProperty(
 					"NAME:H",
 					"PropType:="		, "VariableProp",
 					"UserDef:="		, True,
-					"Value:="		, "0.5mm"
+					"Value:="		, "parameters[3]"
 				]
 			]
 		]
@@ -271,99 +269,8 @@ oEditor.ChangeProperty(
 			]
 		]
 	])
-oEditor.CreateCylinder(
-	[
-		"NAME:CylinderParameters",
-		"XCenter:="		, "1.6mm",
-		"YCenter:="		, "2mm",
-		"ZCenter:="		, "0mm",
-		"Radius:="		, "0.848528137423857mm",
-		"Height:="		, "0.4mm",
-		"WhichAxis:="		, "Z",
-		"NumSides:="		, "0"
-	], 
-	[
-		"NAME:Attributes",
-		"Name:="		, "Cylinder1",
-		"Flags:="		, "",
-		"Color:="		, "(143 175 143)",
-		"Transparency:="	, 0,
-		"PartCoordinateSystem:=", "Global",
-		"UDMId:="		, "",
-		"MaterialValue:="	, "\"vacuum\"",
-		"SurfaceMaterialValue:=", "\"\"",
-		"SolveInside:="		, True,
-		"ShellElement:="	, False,
-		"ShellElementThickness:=", "0mm",
-		"IsMaterialEditable:="	, True,
-		"UseMaterialAppearance:=", False,
-		"IsLightweight:="	, False
-	])
-oEditor.ChangeProperty(
-	[
-		"NAME:AllTabs",
-		[
-			"NAME:Geometry3DAttributeTab",
-			[
-				"NAME:PropServers", 
-				"Cylinder1"
-			],
-			[
-				"NAME:ChangedProps",
-				[
-					"NAME:Material",
-					"Value:="		, "\"pec\""
-				]
-			]
-		]
-	])
-oModule = oDesign.GetModule("BoundarySetup")
-oModule.AssignPerfectE(
-	[
-		"NAME:PerfE1",
-		"Objects:="		, ["Rectangle1"],
-		"InfGroundPlane:="	, False
-	])
-oEditor.ChangeProperty(
-	[
-		"NAME:AllTabs",
-		[
-			"NAME:Geometry3DCmdTab",
-			[
-				"NAME:PropServers", 
-				"Cylinder1:CreateCylinder:1"
-			],
-			[
-				"NAME:ChangedProps",
-				[
-					"NAME:Center Position",
-					"X:="			, "1.6mm",
-					"Y:="			, "2mm",
-					"Z:="			, "H"
-				]
-			]
-		]
-	])
-oEditor.ChangeProperty(
-	[
-		"NAME:AllTabs",
-		[
-			"NAME:Geometry3DCmdTab",
-			[
-				"NAME:PropServers", 
-				"Cylinder1:CreateCylinder:1"
-			],
-			[
-				"NAME:ChangedProps",
-				[
-					"NAME:Center Position",
-					"X:="			, "Xsize/2",
-					"Y:="			, "Ysize/2",
-					"Z:="			, "H"
-				]
-			]
-		]
-	])
+
+
 oDesign.ChangeProperty(
 	[
 		"NAME:AllTabs",
@@ -384,24 +291,7 @@ oDesign.ChangeProperty(
 			]
 		]
 	])
-oEditor.ChangeProperty(
-	[
-		"NAME:AllTabs",
-		[
-			"NAME:Geometry3DCmdTab",
-			[
-				"NAME:PropServers", 
-				"Cylinder1:CreateCylinder:1"
-			],
-			[
-				"NAME:ChangedProps",
-				[
-					"NAME:Radius",
-					"Value:="		, "parameters[0]"
-				]
-			]
-		]
-	])
+
 oDesign.ChangeProperty(
 	[
 		"NAME:AllTabs",
@@ -420,24 +310,37 @@ oDesign.ChangeProperty(
 			]
 		]
 	])
-oEditor.ChangeProperty(
+
+
+oEditor.CreateBox(
 	[
-		"NAME:AllTabs",
-		[
-			"NAME:Geometry3DCmdTab",
-			[
-				"NAME:PropServers", 
-				"Cylinder1:CreateCylinder:1"
-			],
-			[
-				"NAME:ChangedProps",
-				[
-					"NAME:Radius",
-					"Value:="		, "Xsize/2"
-				]
-			]
-		]
+		"NAME:BoxParameters",
+		"XPosition:="		, "1mm",
+		"YPosition:="		, "2mm",
+		"ZPosition:="		, "0mm",
+		"XSize:="		, "1mm",
+		"YSize:="		, "1mm",
+		"ZSize:="		, "1mm"
+	], 
+	[
+		"NAME:Attributes",
+		"Name:="		, "Box2",
+		"Flags:="		, "",
+		"Color:="		, "(143 175 143)",
+		"Transparency:="	, 0,
+		"PartCoordinateSystem:=", "Global",
+		"UDMId:="		, "",
+		"MaterialValue:="	, "\"vacuum\"",
+		"SurfaceMaterialValue:=", "\"\"",
+		"SolveInside:="		, True,
+		"ShellElement:="	, False,
+		"ShellElementThickness:=", "0mm",
+		"IsMaterialEditable:="	, True,
+		"UseMaterialAppearance:=", False,
+		"IsLightweight:="	, False
 	])
+
+
 oEditor.ChangeProperty(
 	[
 		"NAME:AllTabs",
@@ -445,17 +348,349 @@ oEditor.ChangeProperty(
 			"NAME:Geometry3DCmdTab",
 			[
 				"NAME:PropServers", 
-				"Cylinder1:CreateCylinder:1"
+				"Box2:CreateBox:1"
 			],
 			[
 				"NAME:ChangedProps",
 				[
-					"NAME:Radius",
+					"NAME:XSize",
 					"Value:="		, "parameters[0]"
 				]
 			]
 		]
 	])
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DCmdTab",
+			[
+				"NAME:PropServers", 
+				"Box2:CreateBox:1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:YSize",
+					"Value:="		, "parameters[1]"
+				]
+			]
+		]
+	])
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DCmdTab",
+			[
+				"NAME:PropServers", 
+				"Box2:CreateBox:1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:ZSize",
+					"Value:="		, "parameters[2]"
+				]
+			]
+		]
+	])
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DCmdTab",
+			[
+				"NAME:PropServers", 
+				"Box2:CreateBox:1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:Position",
+					"X:="			, "1mm",
+					"Y:="			, "2mm",
+					"Z:="			, "parameters[3]"
+				]
+			]
+		]
+	])
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DCmdTab",
+			[
+				"NAME:PropServers", 
+				"Box2:CreateBox:1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:Position",
+					"X:="			, "Xsize/2 - parameters[0] /2",
+					"Y:="			, "Ysize/2 - parameters[1]/2",
+					"Z:="			, "parameters[3]"
+				]
+			]
+		]
+	])
+
+
+
+
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DAttributeTab",
+			[
+				"NAME:PropServers", 
+				"Box2"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:Color",
+					"R:="			, 255,
+					"G:="			, 0,
+					"B:="			, 0
+				]
+			]
+		]
+	])
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DAttributeTab",
+			[
+				"NAME:PropServers", 
+				"Box1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:Color",
+					"R:="			, 0,
+					"G:="			, 0,
+					"B:="			, 255
+				]
+			]
+		]
+	])
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DAttributeTab",
+			[
+				"NAME:PropServers", 
+				"Rectangle1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:Color",
+					"R:="			, 255,
+					"G:="			, 0,
+					"B:="			, 0
+				]
+			]
+		]
+	])
+
+
+oDesign.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:LocalVariableTab",
+			[
+				"NAME:PropServers", 
+				"LocalVariables"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:Xsize",
+					"Value:="		, "parameters[4]"
+				]
+			]
+		]
+	])
+oDesign.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:LocalVariableTab",
+			[
+				"NAME:PropServers", 
+				"LocalVariables"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:Ysize",
+					"Value:="		, "parameters[4]"
+				]
+			]
+		]
+	])
+oEditor = oDesign.SetActiveEditor("3D Modeler")
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DCmdTab",
+			[
+				"NAME:PropServers", 
+				"Box2:CreateBox:1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:Position",
+					"X:="			, "Xsize/2 - parameters[1] /2",
+					"Y:="			, "Ysize/2 - parameters[0]/2",
+					"Z:="			, "parameters[3]"
+				]
+			]
+		]
+	])
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DCmdTab",
+			[
+				"NAME:PropServers", 
+				"Box2:CreateBox:1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:XSize",
+					"Value:="		, "parameters[1]"
+				]
+			]
+		]
+	])
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DCmdTab",
+			[
+				"NAME:PropServers", 
+				"Box2:CreateBox:1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:YSize",
+					"Value:="		, "parameters[0]"
+				]
+			]
+		]
+	])
+
+
+
+oEditor.Copy(
+	[
+		"NAME:Selections",
+		"Selections:="		, "Box2"
+	])
+oEditor.Paste()
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DCmdTab",
+			[
+				"NAME:PropServers", 
+				"Box3:CreateBox:1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:Position",
+					"X:="			, "XSize/2 -parameters[0]/2",
+					"Y:="			, "YSize/2-parameters[1]/2",
+					"Z:="			, "parameters[3]"
+				]
+			]
+		]
+	])
+
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DAttributeTab",
+			[
+				"NAME:PropServers", 
+				"Box3"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:Material",
+					"Value:="		, "\"pec\""
+				]
+			]
+		]
+	])
+
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DCmdTab",
+			[
+				"NAME:PropServers", 
+				"Box3:CreateBox:1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:XSize",
+					"Value:="		, "parameters[0]"
+				]
+			]
+		]
+	])
+oEditor.ChangeProperty(
+	[
+		"NAME:AllTabs",
+		[
+			"NAME:Geometry3DCmdTab",
+			[
+				"NAME:PropServers", 
+				"Box3:CreateBox:1"
+			],
+			[
+				"NAME:ChangedProps",
+				[
+					"NAME:YSize",
+					"Value:="		, "parameters[1]"
+				]
+			]
+		]
+	])
+
+oEditor.Unite(
+	[
+		"NAME:Selections",
+		"Selections:="		, "Box2,Box3"
+	], 
+	[
+		"NAME:UniteParameters",
+		"KeepOriginals:="	, True
+	])
+
+
 oEditor.CreateRegion(
 	[
 		"NAME:RegionParameters",
@@ -677,6 +912,9 @@ oModule.AssignFloquetPort(
 			]
 		]
 	])
+
+
+
 oModule = oDesign.GetModule("AnalysisSetup")
 oModule.InsertSetup("HfssDriven", 
 	[
@@ -685,9 +923,9 @@ oModule.InsertSetup("HfssDriven",
 		"Frequency:="		, "60GHz",
 		"MaxDeltaS:="		, 0.02,
 		"UseMatrixConv:="	, False,
-		"MaximumPasses:="	, 10,
+		"MaximumPasses:="	, 5,
 		"MinimumPasses:="	, 1,
-		"MinimumConvergedPasses:=", 1,
+		"MinimumConvergedPasses:=", 3,
 		"PercentRefinement:="	, 30,
 		"IsEnabled:="		, True,
 		[
@@ -721,7 +959,7 @@ oModule.InsertFrequencySweep("Setup1",
 		"RangeType:="		, "LinearStep",
 		"RangeStart:="		, "30GHz",
 		"RangeEnd:="		, "90GHz",
-		"RangeStep:="		, "0.01GHz",
+		"RangeStep:="		, "0.1GHz",
 		"Type:="		, "Interpolating",
 		"SaveFields:="		, False,
 		"SaveRadFields:="	, False,
@@ -739,5 +977,13 @@ oModule.InsertFrequencySweep("Setup1",
 		"PassivityErrorTolerance:=", 0.0001,
 		"SMatrixOnlySolveMode:=", "Auto"
 	])
-oProject.SaveAs("C:\\Users\\jorge\\Documents\\Projects Jorge C\\DRUIDA PROJECT\\POC\\dbGeneration_v0\\Models\\testing-multioutput\\meta-atom_circ_01_datageneration.aedt", True)
-oDesktop.CloseProject("meta-atom_05_datageneration")
+
+
+## Iamge export section
+
+
+
+##Lo del box
+
+oProject.SaveAs("C:\\Users\\jorge\\Documents\\Projects Jorge C\\DRUIDA PROJECT\\POC\\dbGeneration_v0\\Models\\testing-multioutput\\meta-atom_cross_01_datageneration.aedt", True)
+oDesktop.CloseProject("meta-atom_cross_01_datageneration")
