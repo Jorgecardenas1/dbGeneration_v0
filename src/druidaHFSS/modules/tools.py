@@ -40,7 +40,7 @@ def cropImage(fullpath,image_path, image_name,output_path, resize_dim):
     output_image = cv2.resize(output_image, dim, interpolation = cv2.INTER_AREA)  
 
     # Save image
-    isExist = os.path.exists(output_path +"/processed/")
+    isExist = os.path.exists(output_path +image_path)
 
 
 
@@ -48,9 +48,9 @@ def cropImage(fullpath,image_path, image_name,output_path, resize_dim):
     if not isExist:
 
         # Create a new directory because it does not exist
-        os.makedirs(output_path +"/processed/")
+        os.makedirs(output_path + image_path)
         print("The new directory is created!")
-    cv2.imwrite(output_path +"/processed/"+image_name, output_image)
+    cv2.imwrite(output_path +image_path+image_name, output_image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
